@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import path from "path";
+import { connectDB } from "./lib/db";
 
 dotenv.config();
 const app = express();
@@ -18,4 +19,5 @@ if (process.env.NODE_ENV === "production") {
 }
 app.listen(PORT, () => {
   console.log(`Server is rundding on: http://localhost:${PORT}`);
+  connectDB();
 });
